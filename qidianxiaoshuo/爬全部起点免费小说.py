@@ -21,12 +21,10 @@ def getbookname(url):
             'bigurl': bigurl
         }
         urlbox.append(info)
-        #如果目录不存在就创建
-        # if not os.path.exists(parentfilename):
-        #     os.makedirs(parentfilename)
+
     #print(urlbox)
     return urlbox
-
+#获取单本目录和链接
 def getbookurls(url):
     charpters = requests.get(url, headers=headers)
 
@@ -47,7 +45,7 @@ def getbookurls(url):
             pass
 
     return tinybox
-
+#获取章节内容
 def getcontent(url):
     content = requests.get(url, headers=headers)
     objects = etree.HTML(content.text)
